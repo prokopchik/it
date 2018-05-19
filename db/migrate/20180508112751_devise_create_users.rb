@@ -5,6 +5,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
     create_table :users do |t|
       ## Database authenticatable
       t.string :name
+      t.string :email
+      t.integer :password
       t.text :about
       t.text :language
       t.text :min_rating_article
@@ -12,6 +14,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.integer :role_id
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      #OmniAuth
+      t.string :provider
+      t.string :uid
 
 
       ## Recoverable
