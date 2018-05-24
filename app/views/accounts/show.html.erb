@@ -1,0 +1,28 @@
+<b>Your articles</b>
+<br>
+<%= @user.name %>
+<br>
+<%= @user.email %>
+<br>
+<%= @user.about %> 
+<br>
+<br>
+<% @user.articles.each do |article| %>
+	<%= article.title %>
+	<br>
+	<%= article.body %>
+	<br>
+	<%= link_to 'Show', article %>
+	<% if policy(article).update? %>
+   <%= link_to 'Edit', edit_article_path(article) %>
+  <% end %>
+  <% if policy(article).destroy? %>
+  	<%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+	<br>
+	<br>
+	<% end %>
+
+<% if policy(@user).edit? %>
+	<%= link_to 'Edit user', edit_account_path("me") %>
+<% end %>

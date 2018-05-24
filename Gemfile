@@ -15,6 +15,12 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'bootstrap-sass'
 gem 'pundit'
+gem 'simple_form'
+gem 'redcarpet', '~> 3.4'
+gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
+gem 'markdown-toolbar'
+
+gem 'rails_admin', '~> 1.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -54,6 +60,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry'
+  gem 'pry-rails'
+  gem "letter_opener"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

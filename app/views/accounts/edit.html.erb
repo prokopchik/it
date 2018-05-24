@@ -1,0 +1,7 @@
+<%= simple_form_for(current_user, method: :patch, url: account_path) do |f| %>
+	<%= f.input :name %>
+	<%= f.input :email %>
+	<%= f.input :about %>
+	<button class="btn btn-primary" type="submit"> Update user </button>
+	<% end %>
+<%= link_to "change password", edit_user_registration_path %>

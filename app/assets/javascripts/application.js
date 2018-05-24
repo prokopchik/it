@@ -13,3 +13,10 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+$( document ).on('turbolinks:load', function() {
+  $(".markdown-input").each(function(i, textarea){
+    $(textarea).markdownToolbar();
+    $(textarea).change();
+  });
+});

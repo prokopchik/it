@@ -7,13 +7,23 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @article.body %>
+  <%= markdown @article.body %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @article.user_id %>
+  <strong>Writer:</strong>
+  <li>
+  	<%= link_to account_path(@article.user) do %>
+       <%= @article.user.name %>
+    <% end %>  	
+  </li>
+        
 </p>
+<% if policy(@article).update? %>
+	<%= link_to 'Edit', edit_article_path(@article) %> |
+<% end %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
+<% if policy(@article).destroy? %>
+	<%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
 <%= link_to 'Back', articles_path %>

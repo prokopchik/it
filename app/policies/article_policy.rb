@@ -4,20 +4,20 @@ class ArticlePolicy < ApplicationPolicy
   end
  
   def create?
-    user.present?
+    user.present? && (user.writer? || user.admin?)
   end
  
   def update?
-    return true if user.present? && user == article.user
+    user.present? && (user == article.user || user.admin?)
   end
  
   def destroy?
-    return true if user.present? && user == article.user
+    user.present? && (user == article.user || user.admin?)
   end
  
   private
  
-    def article
-      record
-    end
+  def article
+    record
+  end
 end
