@@ -1,9 +1,9 @@
 class UserPolicy < ApplicationPolicy
-	def edit?
+  def edit?
     user.present? && (record == user || user.admin?)
   end
 
-	def update?
+  def update?
     user.present? && (record == user || user.admin?)
   end
 end
