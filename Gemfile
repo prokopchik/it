@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'redcarpet', '~> 3.4'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 gem 'markdown-toolbar'
+gem 'jquery-rails'
 
 gem "administrate"
 # Use Puma as the app server
