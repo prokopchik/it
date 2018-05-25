@@ -2,6 +2,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   has_many :articles
   belongs_to :role
+  has_many :comments
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
