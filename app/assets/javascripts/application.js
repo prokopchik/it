@@ -17,8 +17,16 @@
 //= require_tree .
 
 $( document ).on('turbolinks:load', function() {
-  $(".markdown-input").each(function(i, textarea){
-    $(textarea).markdownToolbar();
-    $(textarea).change();
+  $(".markdown-input").each(function(i, textarea) {
+  	var articleId = $(textarea).data("article-id");
+
+    $(textarea).markdownEditor({
+    	preview: true,
+    	onPreview: function (content, callback) {
+          callback( marked(content) );
+      },
+    	imageUpload: true,
+		  uploadPath: '/articles/' + articleId + '/images'
+    });
   });
 });

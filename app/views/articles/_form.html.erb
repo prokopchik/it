@@ -13,11 +13,9 @@
   
 
     <%= f.input :title %>
-    <%= f.text_area :body, class: "markdown-input toolbar", rows: 10, cols: 70 %>
+    <%= f.text_area :body, class: "markdown-input toolbar", rows: 10, cols: 70, "data-article-id" => article.id || 1 %>
     <br>
-   
 
- 
   <button class="btn btn-primary" type="submit"> Update article </button>
   <br>
   <br>

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   resources :articles
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks', registrations: 'users/registrations' }
-  resources :articles
+  resources :articles do
+    resources :images, only: [:create]
+  end
   resources :accounts, only: %i[show edit update]
   root 'articles#index'
 
