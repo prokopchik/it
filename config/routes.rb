@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  namespace :admin do
+    resources :users
+    resources :articles
+    resources :roles
+
+    root to: "users#index"
+  end
+
   resources :articles
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", registrations: 'users/registrations' }
   resources :articles

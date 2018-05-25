@@ -8,10 +8,20 @@
     <ul class="nav navbar-nav pull-right">
       <li><% link_to 'Home', root_path %></li>
       <ul class="nav navbar-nav pull-right">
-        <% if user_signed_in? %>
-        <li><%= link_to account_path("me") do %>
-          <%= current_user.email %></li>
+          <% if policy(:admin).show? %>
+        <li><%= link_to "administrate", admin_users_path %></li>
         <% end %>
+
+        <% if policy(Article).create? %>
+          <li><%= link_to 'New article', new_article_path %></li>
+        <% end %>
+
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to account_path("me") do %>
+            <%= current_user.email %>
+          <% end %>
+        </li>
         <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to 'Log In', new_user_session_path %></li>

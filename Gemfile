@@ -20,7 +20,7 @@ gem 'redcarpet', '~> 3.4'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 gem 'markdown-toolbar'
 
-gem 'rails_admin', '~> 1.3'
+gem "administrate"
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

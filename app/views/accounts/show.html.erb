@@ -7,10 +7,15 @@
 <%= @user.about %> 
 <br>
 <br>
+<% if policy(@user).edit? %>
+	<%= link_to 'Edit user', edit_account_path("me") %>
+<% end %>
+<br>
+
 <% @user.articles.each do |article| %>
 	<%= article.title %>
 	<br>
-	<%= article.body %>
+	<%= markdown article.body %>
 	<br>
 	<%= link_to 'Show', article %>
 	<% if policy(article).update? %>
@@ -23,6 +28,3 @@
 	<br>
 	<% end %>
 
-<% if policy(@user).edit? %>
-	<%= link_to 'Edit user', edit_account_path("me") %>
-<% end %>
