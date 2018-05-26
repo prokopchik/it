@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks', registrations: 'users/registrations' }
   resources :articles do
     resources :images, only: [:create]
+    resources :comments, only: [:create]
   end
+
   resources :accounts, only: %i[show edit update]
   root 'articles#index'
 

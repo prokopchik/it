@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     authorize @article, :show?
+    @comments = @article.comments.root.order(created_at: :desc)
   end
 
   def new

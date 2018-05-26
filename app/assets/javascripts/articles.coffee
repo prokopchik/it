@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'turbolinks:load', ->
+  $('.markdown-input').each (i, textarea) ->
+    articleId = $(textarea).data('article-id')
+    $(textarea).markdownEditor
+      preview: true
+      onPreview: (content, callback) ->
+        callback marked(content)
+        return
+      imageUpload: true
+      uploadPath: '/articles/' + articleId + '/images'

@@ -1,0 +1,21 @@
+.new-comment {
+	&.new-comment-bg {
+		background-color: bisque;
+	}
+	padding: 10px;
+  width: 400px;
+}
+
+.children-comments-list {
+	margin-left: 50px;
+}
+
+.reply-to-comment {
+	cursor: pointer;
+	color: black;
+	font-size: 12px;
+
+	&:hover {
+		color: green;
+	}
+}

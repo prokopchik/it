@@ -1,4 +1,8 @@
-<div class="articles-show">
+<%- content_for :action_cable_channels do %>
+  <%= javascript_include_tag 'channels/comments' %>
+<% end %>
+
+<div class="articles-show" data-article-id="<%= @article.id %>">
   <p id="notice"><%= notice %></p>
 
   <p>
@@ -19,6 +23,14 @@
       <% end %>  	
     </li>    
   </p>
+  
+  <%= render partial: "comment_form", locals: { parent_comment: nil } %>
+  <div class="comments-list">
+    <% @comments.each do |comment| %>
+      <%= render partial: "comment", locals: { comment: comment } %>
+    <% end %> 
+  </div>
+
   <% if policy(@article).update? %>
   	<%= link_to 'Edit', edit_article_path(@article) %> |
   <% end %>

@@ -1,0 +1,21 @@
+<div>
+	<b><%= comment.user.name || comment.user.email %></b> <%= comment.created_at.to_s(:long) %>
+	<% if comment.root? %>
+		<span class="reply-to-comment" data-comment-id="<%= comment.id %>">reply</span>
+	<% end %>
+  <br />
+	<%= comment.body %>
+</div>
+
+<% if comment.root? %>
+	<div class="new-comment-form new-comment-form-<%= comment.id %> hidden" >
+		<%= render partial: "/articles/comment_form", locals: { parent_comment: comment } %>
+	</div>
+	<br>
+	<div class="children-comments-list children-comments-list-<%= comment.id %>">
+	  <% comment.children_comments.order(created_at: :desc).each do |child_comment| %>
+	    <%= render partial: "/articles/comment", locals: { comment: child_comment } %>
+	    <br>
+	  <% end %>
+	</div>
+<% end %>
