@@ -20,6 +20,7 @@ gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 gem 'redcarpet', '~> 3.4'
 gem 'rubocop', require: false
 gem 'simple_form'
+gem "paperclip", "~> 6.0.0"
 
 gem 'administrate'
 # Use Puma as the app server
