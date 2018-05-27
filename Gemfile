@@ -21,6 +21,7 @@ gem 'redcarpet', '~> 3.4'
 gem 'rubocop', require: false
 gem 'simple_form'
 gem "paperclip", "~> 6.0.0"
+gem 'administrate-field-paperclip'
 
 gem 'administrate'
 # Use Puma as the app server
