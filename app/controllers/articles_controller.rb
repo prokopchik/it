@@ -2,7 +2,13 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
 
   def index
-    @articles = Article.all
+    if params[:query]
+      @articles = Article.search { fulltext params[:query] }.results
+    else
+      @articles = Article.all.order(created_at: :desc)
+    end
+  rescue RSolr::Error::ConnectionRefused
+    @articles = Article.all.order(created_at: :desc)
   end
 
   def show

@@ -3,14 +3,14 @@
     <div class="col-md-6 article-item">
       <%= link_to article.title, article %>
       <%= markdown article.body %>
-      <div class="button-group" role="group"> 
-        <% if policy(article).update? %>          
+      <div class="button-group" role="group">
+        <% if policy(article).update? %>
           <%= link_to "Edit", edit_article_path(article), class: "btn btn-default" %>
         <% end %>
         <% if policy(article).destroy? %>
         <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         <% end %>
-      </div> 
+      </div>
     </div>
   <% end %>
 </div>

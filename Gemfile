@@ -22,6 +22,8 @@ gem 'rubocop', require: false
 gem 'simple_form'
 gem "paperclip", "~> 6.0.0"
 gem 'administrate-field-paperclip'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 gem 'administrate'
 # Use Puma as the app server
