@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     resources :roles
     resources :comments
     resources :images
-
     root to: 'users#index'
   end
 

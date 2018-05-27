@@ -2,6 +2,8 @@
 	<%= f.input :name %>
 	<%= f.input :email %>
 	<%= f.input :about %>
+  <%= f.input :theme, as: :radio_buttons, collection: ['magazine', 'newspaper'], selected: current_user.theme %>
 	<button class="btn btn-primary" type="submit"> Update user </button>
 	<% end %>
 <%= link_to "change password", edit_user_registration_path %>
+

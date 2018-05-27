@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>iTransition news</title>
+    <title>itransition news</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,8 +9,8 @@
     <%= render "layouts/markdown_toolbar" %>
     <%= yield :action_cable_channels %>
   </head>
- 
-  <body>
+
+  <body class="<%= current_user ? current_user.theme : 'magazine' %>">
     <%= render "layouts/navigation" %>
     <div id="flash">
       <% flash.each do |key, value| %>

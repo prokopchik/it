@@ -2,18 +2,18 @@
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <%= link_to 'iTransition news', root_path, class: 'navbar-brand' %>
+      <%= link_to 'itransition news', root_path, class: 'navbar-brand' %>
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button> 
+      </button>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if policy(:admin).show? %>
@@ -34,7 +34,7 @@
         <% else %>
           <li><%= link_to 'Log In', new_user_session_path %></li>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <% end %> 
+        <% end %>
           </ul>
         </li>
       </ul>

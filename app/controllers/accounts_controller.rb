@@ -22,10 +22,11 @@ class AccountsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :about)
+    params.require(:user).permit(:name, :email, :about, :theme)
   end
 
   def authorize_user
     authorize current_user
   end
+
 end

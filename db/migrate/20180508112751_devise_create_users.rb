@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.text :about
       t.text :language
       t.text :min_rating_article
-      t.text :theme
+      t.integer :theme, default: 0
       t.boolean :blocked
       t.integer :role_id
       t.string :email,              null: false, default: ''

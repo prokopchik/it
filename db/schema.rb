@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20180527150939) do
     t.text "about"
     t.text "language"
     t.text "min_rating_article"
-    t.text "theme"
+    t.integer "theme", default: 0
     t.boolean "blocked"
     t.integer "role_id"
     t.string "encrypted_password", default: "", null: false

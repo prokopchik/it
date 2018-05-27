@@ -16,7 +16,8 @@ class UserDashboard < Administrate::BaseDashboard
     about: Field::Text,
     language: Field::Text,
     min_rating_article: Field::Text,
-    blocked: Field::Boolean
+    blocked: Field::Boolean,
+    theme: Field::Select.with_options(collection: ["newspaper", "magazine"])
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -30,6 +31,7 @@ class UserDashboard < Administrate::BaseDashboard
     id
     name
     blocked
+    theme
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -44,6 +46,7 @@ class UserDashboard < Administrate::BaseDashboard
     language
     min_rating_article
     blocked
+    theme
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -58,6 +61,7 @@ class UserDashboard < Administrate::BaseDashboard
     language
     min_rating_article
     blocked
+    theme
   ].freeze
 
   # Overwrite this method to customize how users are displayed
