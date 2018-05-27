@@ -24,7 +24,9 @@
     </li>    
   </p>
   
-  <%= render partial: "comment_form", locals: { parent_comment: nil } %>
+  <% if policy(Comment).create? %>
+    <%= render partial: "comment_form", locals: { parent_comment: nil } %>
+  <% end %>
   <div class="comments-list">
     <% @comments.each do |comment| %>
       <%= render partial: "comment", locals: { comment: comment } %>

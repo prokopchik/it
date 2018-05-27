@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
 		@comment.save
 
 		ActionCable.server.broadcast "comments_#{@article.id}", 
+			id: @comment.id,
+			article_id: @article.id,
 			username: @comment.user.name || @comment.user.email, 
 			body: @comment.body, 
 			created_at: @comment.created_at.to_s(:long),

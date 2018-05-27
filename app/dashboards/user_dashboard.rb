@@ -15,7 +15,8 @@ class UserDashboard < Administrate::BaseDashboard
     email: Field::String,
     about: Field::Text,
     language: Field::Text,
-    min_rating_article: Field::Text
+    min_rating_article: Field::Text,
+    blocked: Field::Boolean
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,6 +29,7 @@ class UserDashboard < Administrate::BaseDashboard
     role
     id
     name
+    blocked
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -41,6 +43,7 @@ class UserDashboard < Administrate::BaseDashboard
     about
     language
     min_rating_article
+    blocked
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -54,6 +57,7 @@ class UserDashboard < Administrate::BaseDashboard
     about
     language
     min_rating_article
+    blocked
   ].freeze
 
   # Overwrite this method to customize how users are displayed

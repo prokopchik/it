@@ -9,7 +9,7 @@ App.messages = App.cable.subscriptions.create { channel: 'ApplicationCable::Comm
 
   renderComment: (comment) -> 
     setTimeout @fadeOutBg, 1500
-    "<div class='new-comment new-comment-bg'><b>#{comment.username}</b> #{comment.created_at}: #{comment.body}</div>"
+    "<div class='new-comment new-comment-bg'><b>#{comment.username}</b> #{comment.created_at}: #{comment.body}</div><div class='children-comments-list children-comments-list-#{comment.id}'><div>"
 
   fadeOutBg: () -> 
     $(".new-comment").removeClass("new-comment-bg");

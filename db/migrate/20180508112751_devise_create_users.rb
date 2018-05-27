@@ -11,6 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.text :language
       t.text :min_rating_article
       t.text :theme
+      t.boolean :blocked
       t.integer :role_id
       t.string :email,              null: false, default: ''
       t.string :encrypted_password, null: false, default: ''

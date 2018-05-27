@@ -1,5 +1,7 @@
-<%= simple_form_for @article.comments.new(parent_comment: parent_comment), url: article_comments_path(@article), method: :POST, remote: true do |f| %>
-	<%= f.input :body, required: true, input_html: { class: "comment-body-textarea" } %>
-	<%= f.input :parent_comment_id, as: :hidden %> 
-  <button class="btn btn-primary" type="submit"> Add comment </button>
-<% end %>
+<div class="comment-form">
+	<%= simple_form_for @article.comments.new(parent_comment: parent_comment), url: article_comments_path(@article), method: :POST, remote: true do |f| %>
+		<%= f.input :body, required: true, input_html: { class: "comment-body-textarea" }, label: false %>
+		<%= f.input :parent_comment_id, as: :hidden %> 
+	  <button class="btn btn-primary" type="submit"> Add comment </button>
+	<% end %>
+</div>

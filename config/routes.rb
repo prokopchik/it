@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :users
     resources :articles
     resources :roles
+    resources :comments
 
     root to: 'users#index'
   end
