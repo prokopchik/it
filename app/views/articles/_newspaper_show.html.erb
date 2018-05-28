@@ -1,0 +1,56 @@
+<%- content_for :action_cable_channels do %>
+  <%= javascript_include_tag 'channels/comments' %>
+<% end %>
+
+<div class="articles-show" data-article-id="<%= article.id %>">
+  <p id="notice"><%= notice %></p>
+
+  <div class="col-md-8">
+      <p>
+        <strong>
+        <h7 >
+          <%= article.title %>
+        </h7  >
+      </strong>
+      </p>
+    <div class="article-newspaper">
+      <%= markdown article.body %>
+    </div>
+    <p>
+      <small>Автор:</small>
+      <%= link_to account_path(article.user) do %>
+          <%= article.user.name %>
+      <% end %>
+      <div class="font_size_timestamps">
+      <%= article.created_at.to_s(:long) %>
+      </div>
+    </p>
+
+      <div class="markup_navigation_bottom">
+        <% if policy(article).update? %>
+          <%= link_to 'Редактировать', edit_article_path(article), class: "btn btn-default" %>
+        <% end %>
+        <% if policy(article).destroy? %>
+          <%= link_to 'Удалить', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <% end %>
+        <%= link_to 'Назад', articles_path, class: "btn btn-default" %>
+      </div>
+      <% if policy(Comment).create? %>
+        <%= render partial: "comment_form", locals: { parent_comment: nil } %>
+      <% end %>
+      <div class="comments-list">
+        <% @comments.each do |comment| %>
+          <%= render partial: "comment", locals: { comment: comment } %>
+        <% end %>
+      </div>
+  </div>
+</div>
+<div class="col-md-3">
+
+  <% @articles.each do |article| %>
+    <small>
+      <%= link_to article.title, article %>
+      <%= markdown article.short_description %>
+    </small>
+  <% end %>
+</div>

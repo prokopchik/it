@@ -4,16 +4,18 @@ role_admin = Role.create!(name: 'Admin')
 
 user_ihar = User.create!(name: 'Ihar',
                          email: 'iharprokop@gmail.com',
-                         password: 12_345_678,
+                         password: 12345678,
                          about: "Hello, i'm admin of this site",
                          role: role_admin,
-                         language: 'ru')
+                         language: 'ru',
+                         theme: "magazine")
 user_kos = User.create!(name: 'Konstantin',
                         email: 'koszenin@gmail.com',
-                        password: 1_234_567_890,
+                        password: 1234567890,
                         about: "Hello, i'm writer of this site",
                         role: role_writer,
-                        language: 'ru')
+                        language: 'ru',
+                        theme: "magazine")
 
 user_ihar.confirm
 user_kos.confirm

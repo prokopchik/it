@@ -1,5 +1,5 @@
-.articles-list {
-	.article-item {
+.articles-index {
+	.article-newspaper {
 		img {
 			max-width: 280px;
 			max-height:170px;
@@ -8,12 +8,24 @@
 			margin-top: 10px;
 		}
 	}
+	.article-magazine {
+		img {
+			max-width: 500px;
+			min-width: 500px;
+		}
+	}
 }
 
 .articles-show {
-	.article-body {
+	.article-magazine {
 		img {
 			max-width: 600px;
+		}
+	}
+	.article-newspaper {
+		img {
+			max-width: 800px;
+			min-width: 800px;
 		}
 	}
 }

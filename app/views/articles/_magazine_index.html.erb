@@ -1,0 +1,23 @@
+<div class="articles-index">
+  <% @articles.each do |article| %>
+    <div class="col-md-3 article-newspaper markup_index  ">
+      <center>
+        <%= link_to article.title, article %>
+        <%= markdown article.short_description %>
+        <div class="font_size_timestamps">
+        <%= article.created_at.to_s(:long) %>
+      </div>
+        <div class="button-group" role="group">
+          <% if policy(article).update? %>
+            <%= link_to "Редактировать", edit_article_path(article), class: "btn btn-default" %>
+          <% end %>
+          <% if policy(article).destroy? %>
+            <%= link_to 'Удалить', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <% end %>
+          <br>
+          <br>
+        </div>
+      </center>
+    </div>
+  <% end %>
+</div>
