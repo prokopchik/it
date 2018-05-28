@@ -2,7 +2,7 @@
 <div>
 	<b><%= comment.user.name || comment.user.email %></b> <%= comment.created_at.to_s(:long) %>
 	<% if comment.root? && policy(Comment).create? %>
-		<span class="reply-to-comment" data-comment-id="<%= comment.id %>">reply</span>
+		<span class="reply-to-comment" data-comment-id="<%= comment.id %>">ответить</span>
 	<% end %>
   <br />
 	<%= comment.body %>

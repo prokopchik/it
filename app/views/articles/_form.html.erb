@@ -1,7 +1,7 @@
 <%= simple_form_for(article) do |f| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
-      <h6><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h6>
+      <h6><%= pluralize(article.errors.count, "error") %> невозможно сохранить статью:</h6>
 
       <ul>
       <% article.errors.full_messages.each do |message| %>
@@ -11,13 +11,12 @@
     </div>
   <% end %>
 
-
-    <%= f.input :title %>
-    <%= f.input :short_description %>
+    <%= f.input :title, label: "Заголовок", :input_html => {:maxlength => 40} %>
+    <%= f.input :short_description, label: "Краткое описание", :input_html => {:maxlength => 200} %>
     <%= f.text_area :body, class: "markdown-input toolbar", rows: 10, cols: 70, "data-article-id" => article.id || 1 %>
     <br>
 
-  <button class="btn btn-primary" type="submit"> Update article </button>
+  <button class="btn btn-primary" type="submit"> Загрузить </button>
   <br>
   <br>
 <% end %>

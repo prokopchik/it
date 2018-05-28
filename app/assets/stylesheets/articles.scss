@@ -1,7 +1,11 @@
 .articles-list {
 	.article-item {
 		img {
-			max-width: 200px;
+			max-width: 280px;
+			max-height:170px;
+			min-width: 280px;
+			min-height: 170px;
+			margin-top: 10px;
 		}
 	}
 }

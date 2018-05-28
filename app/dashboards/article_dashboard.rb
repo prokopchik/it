@@ -12,6 +12,7 @@ class ArticleDashboard < Administrate::BaseDashboard
     id: Field::Number,
     title: Field::String,
     body: Field::Text,
+    short_description: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -22,10 +23,10 @@ class ArticleDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    user
     id
+    user
     title
-    body
+    short_description
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -34,6 +35,7 @@ class ArticleDashboard < Administrate::BaseDashboard
     user
     id
     title
+    short_description
     body
     created_at
     updated_at
@@ -45,7 +47,9 @@ class ArticleDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     user
     title
+    short_description
     body
+    created_at
   ].freeze
 
   # Overwrite this method to customize how articles are displayed
