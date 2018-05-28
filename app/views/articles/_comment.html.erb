@@ -1,3 +1,4 @@
+	<blockquote>
 <div>
 	<b><%= comment.user.name || comment.user.email %></b> <%= comment.created_at.to_s(:long) %>
 	<% if comment.root? && policy(Comment).create? %>
@@ -6,7 +7,7 @@
   <br />
 	<%= comment.body %>
 </div>
-
+</blockquote>
 <% if comment.root? %>
 	<div class="new-comment-form new-comment-form-<%= comment.id %> hidden" >
 		<%= render partial: "/articles/comment_form", locals: { parent_comment: comment } %>
@@ -19,3 +20,4 @@
 	  <% end %>
 	</div>
 <% end %>
+

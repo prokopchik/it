@@ -5,40 +5,48 @@
 <div class="articles-show" data-article-id="<%= @article.id %>">
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @article.title %>
-  </p>
-
-  <div class="article-body">
-    <strong>Body:</strong>
-    <%= markdown @article.body %>
+  <div class="col-md-3">
   </div>
 
-  <p>
-    <strong>Writer:</strong>
-    <li>
-    	<%= link_to account_path(@article.user) do %>
-         <%= @article.user.name %>
-      <% end %>  	
-    </li>    
-  </p>
-  
-  <% if policy(Comment).create? %>
-    <%= render partial: "comment_form", locals: { parent_comment: nil } %>
-  <% end %>
-  <div class="comments-list">
-    <% @comments.each do |comment| %>
-      <%= render partial: "comment", locals: { comment: comment } %>
-    <% end %> 
+  <div class="col-md-6">
+    <center>
+    <p>
+      <strong>
+      <h7 >
+        <%= @article.title %>
+      </h7  >
+    </strong>
+    </p>
+  </center>
+    <div class="article-body">
+      <%= markdown @article.body %>
+    </div>
+    <p>
+      <small>Writer:</small>
+      <%= link_to account_path(@article.user) do %>
+          <%= @article.user.name %>
+      <% end %>
+    </p>
+    <center>
+    <% if policy(Comment).create? %>
+      <%= render partial: "comment_form", locals: { parent_comment: nil } %>
+    <% end %>
+    <div class="comments-list">
+      <% @comments.each do |comment| %>
+        <%= render partial: "comment", locals: { comment: comment } %>
+      <% end %>
+    </div>
+
+    <% if policy(@article).update? %>
+    	<%= link_to 'Edit', edit_article_path(@article), class: "btn btn-default" %>
+    <% end %>
+
+    <% if policy(@article).destroy? %>
+    	<%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    <% end %>
+    <%= link_to 'Back', articles_path, class: "btn btn-default" %>
+  </center>
   </div>
-
-  <% if policy(@article).update? %>
-  	<%= link_to 'Edit', edit_article_path(@article) %> |
-  <% end %>
-
-  <% if policy(@article).destroy? %>
-  	<%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %> |
-  <% end %>
-  <%= link_to 'Back', articles_path %>
+  <div class="col-md-3">
+  </div>
 </div>

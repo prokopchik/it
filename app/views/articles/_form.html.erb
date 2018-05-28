@@ -1,8 +1,8 @@
 <%= simple_form_for(article) do |f| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
- 
+      <h6><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h6>
+
       <ul>
       <% article.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,9 +10,10 @@
       </ul>
     </div>
   <% end %>
-  
+
 
     <%= f.input :title %>
+    <%= f.input :short_description %>
     <%= f.text_area :body, class: "markdown-input toolbar", rows: 10, cols: 70, "data-article-id" => article.id || 1 %>
     <br>
 
